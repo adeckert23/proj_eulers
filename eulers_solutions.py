@@ -40,27 +40,13 @@ def even_fib_sum(maximum= 4000000):
 #The prime factors of 13195 are 5, 7, 13 and 29.
 #What is the largest prime factor of the number 600851475143 ?
 
-def lpf(input=600851475143):
-    factors = []
-    for num in range(3,(input+1/2)):
-        if input % num == 0:
-            factors.append(num)
-    print(factors)
-    # d=3
-    # for n in factors:
-    #     if n%2 ==0:
-    #         factors.pop(n)
-    #     while d*d <=n:
-    #         if n%d ==0:
-    #             factors.pop(n)
-    #         d = d+2
-    return factors
-
-
+#I used the square root(roughly) of the number 600 billion above, as it is the
+#composite number that can be used to find the largest prime factor to make this
+#less computationaly expensive
 
 def Prime():
     Primes = []
-    for Possible_Prime in range(2,40000):
+    for Possible_Prime in range(2,776000):
         IsPrime=True
         for num in range(2,Possible_Prime):
             if Possible_Prime % num ==0:
@@ -70,4 +56,12 @@ def Prime():
             Primes.append(Possible_Prime)
     return Primes
 
-Prime()
+plist = Prime()
+len(plist)
+
+def find_factor(input=600851475143, prime_list=plist):
+    for num in prime_list[::-1]:
+        if input%num==0:
+            return print(num)
+find_factor()
+#The Answer is 6857
